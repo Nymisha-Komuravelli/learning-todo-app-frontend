@@ -5,7 +5,6 @@ import { Button, Col, Row } from "antd";
 import { TodoContext } from "./TodoApp";
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
-import { useEffect } from "react/cjs/react.development";
 
 const Trash = () => {
   const [
