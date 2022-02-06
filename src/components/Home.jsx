@@ -1,6 +1,6 @@
 import { TodoContext } from "./TodoApp";
 import React, { useState } from "react";
-import { useContext } from "react/cjs/react.development";
+import { useContext } from "react";
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 
