@@ -8,7 +8,7 @@ const Login = ({ handleAuth }) => {
   const [usersList, setUsersList] = useState(
     JSON.parse(localStorage.getItem("usersList")) || []
   );
-  console.log(usersList);
+  const [isUserLoggedin, setIsUserLoggedin] = useState(false);
 
    /**
    *
@@ -19,7 +19,8 @@ const Login = ({ handleAuth }) => {
     let user = usersList?.filter((user) => user.username == values.username && user.password == values.password);
     if (user?.length > 0) {
       setTimeout(() => {
-        localStorage.setItem("isLoggedIn", "true")
+        localStorage.setItem("isLoggedIn", "true");
+        setIsUserLoggedin(true);
         handleAuth(true);
         history.push("/");
       }, 1000);
