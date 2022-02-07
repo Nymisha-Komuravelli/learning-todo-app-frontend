@@ -1,26 +1,29 @@
-import { Button, Card, Col, Form, Input, notification, Row } from "antd";
-import React, { Fragment, useEffect, useState } from "react";
+import { Button, Col, Form, Input, notification, Row } from "antd";
+import React, { Fragment, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
 
-const Login = ({ handleAuth }) => {
+const Login = () => {
   const [form] = Form.useForm();
   const history = useHistory();
   const [usersList, setUsersList] = useState(
     JSON.parse(localStorage.getItem("usersList")) || []
   );
-  const [isUserLoggedin, setIsUserLoggedin] = useState(false);
-
-   /**
+  const [authorized, handleAuth] = useContext(AuthContext);
+  /**
    *
    * Method to validate User Credentials entered in the form with the details stored in localstorage.
    * It navigates to Home Page if login is succesful. Else it remains in the Login page and throws an error notification.
    */
   const handleLogin = (values) => {
-    let user = usersList?.filter((user) => user.username == values.username && user.password == values.password);
+    let user = usersList?.filter(
+      (user) =>
+        user.username == values.username && user.password == values.password
+    );
     if (user?.length > 0) {
       setTimeout(() => {
+        console.log("handlelogin");
         localStorage.setItem("isLoggedIn", "true");
-        setIsUserLoggedin(true);
         handleAuth(true);
         history.push("/");
       }, 1000);
@@ -38,14 +41,14 @@ const Login = ({ handleAuth }) => {
    * To check whether the user is already logged in and redirect to home page if logged in.
    * Else will redirect to login page
    */
-  useEffect(()=>{
+  /* useEffect(()=>{
     if(localStorage.getItem("isLoggedIn") == "true"){
       handleAuth(true);
       history.push("/");
     }
-  },[])
+  },[]) */
 
-   /**
+  /**
    *
    * Method to navigate to the signup page.
    */
@@ -85,10 +88,7 @@ const Login = ({ handleAuth }) => {
                 </Col>
                 <Col span={24}>
                   <Form.Item>
-                    <Button
-                      htmlType="submit"
-                      className="add-btn"
-                    >
+                    <Button htmlType="submit" className="add-btn">
                       Login
                     </Button>
                   </Form.Item>

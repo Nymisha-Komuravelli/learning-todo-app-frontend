@@ -1,10 +1,6 @@
 import {
-  ArrowLeftOutlined,
-  DeleteFilled,
-  RollbackOutlined,
+  ArrowLeftOutlined
 } from "@ant-design/icons";
-import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Row, Space } from "antd";
 import { TodoContext } from "./TodoApp";
 import React, { useContext, useState } from "react";

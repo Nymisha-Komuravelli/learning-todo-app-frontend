@@ -1,9 +1,8 @@
 import { Button, Col, Menu, Row } from "antd";
-//import { TodoContext } from "App";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { createContext } from "react";
 import { useHistory } from "react-router";
-import { NavLink, Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import History from "./History";
 import Home from "./Home";
 import Trash from "./Trash";
@@ -21,7 +20,7 @@ const TodoApp = () => {
   let history = useHistory();
 
   /**
-   * 
+   *
    * Method to add new todoitem to the existing todolist stored in localstorage and adding the event to log.
    * Param received from AddTodo Component
    */
@@ -37,7 +36,7 @@ const TodoApp = () => {
   };
 
   /**
-   * 
+   *
    * Method to delete a particular todoitem from the existing todolist and adding the event to log.
    * Param received from TodoList Component
    */
@@ -54,7 +53,7 @@ const TodoApp = () => {
   };
 
   /**
-   * 
+   *
    * Method to mark a particular todoitem as complete from the existing todolist and adding the event to log.
    * Param received from TodoList Component
    */
@@ -74,7 +73,7 @@ const TodoApp = () => {
   };
 
   /**
-   * 
+   *
    * Method to restore a deleted todoitem from the trash page and adding the event to log.
    * Param received from Trash Component
    */
@@ -90,7 +89,7 @@ const TodoApp = () => {
   };
 
   /**
-   * 
+   *
    * Method to do permanent delete of a todoitem from the trash page.
    * Param received from Trash Component
    */
@@ -100,18 +99,24 @@ const TodoApp = () => {
   };
 
   /**
-   * 
+   *
    * Method to navigate to the selected page and display it as current page in the UI
    */
   const handleClick = (e) => {
     let selectedKey = e.key;
-    setCurrent(selectedKey)
-    history.push(navigationList.filter((menu) => menu.key == selectedKey)[0].path);
-    (selectedKey == "D") ? localStorage.setItem("isLoggedIn", "false") : localStorage.setItem("isLoggedIn", "true");
+    setCurrent(selectedKey);
+    console.log(navigationList.filter((menu) => menu.key == selectedKey)[0].path);
+    history.push(
+      navigationList.filter((menu) => menu.key == selectedKey)[0].path
+    );
+    if (selectedKey == "D") {
+      localStorage.setItem("isLoggedIn", "false");
+      localStorage.setItem("authorized", "false");
+    }
   };
 
   /**
-   * 
+   *
    * Method to navigate to Home page from the History page.
    */
   const backtoHome = () => {
@@ -123,7 +128,7 @@ const TodoApp = () => {
     { key: "A", path: "/" },
     { key: "B", path: "/trash" },
     { key: "C", path: "/history" },
-    { key: "D", path: "/login" }
+    { key: "D", path: "/login" },
   ];
 
   return (
@@ -152,16 +157,22 @@ const TodoApp = () => {
               <Menu.Item key="A">Home</Menu.Item>
               <Menu.Item key="B">Trash</Menu.Item>
               <Menu.Item key="C">History</Menu.Item>
-              <Menu.Item key="D" style={{"marginLeft": "auto"}} className="logout-button"><Button>Logout</Button></Menu.Item>
+              <Menu.Item
+                key="D"
+                style={{ marginLeft: "auto" }}
+                className="logout-button"
+              >
+                <Button>Logout</Button>
+              </Menu.Item>
             </Menu>
             <Switch>
-              <Route path="/" exact>
+              <Route exact path="/" >
                 <Home />
               </Route>
-              <Route path="/trash" exact>
+              <Route exact path="/trash" >
                 <Trash />
               </Route>
-              <Route path="/history" exact>
+              <Route exact path="/history" >
                 <History />
               </Route>
             </Switch>

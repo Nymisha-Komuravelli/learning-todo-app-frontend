@@ -1,5 +1,5 @@
-import { Button, Card, Col, Form, Input, notification, Row } from "antd";
-import React, { Fragment, useEffect, useState } from "react";
+import { Button, Col, Form, Input, notification, Row } from "antd";
+import React, { Fragment, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const Signup = () => {
@@ -8,12 +8,6 @@ const Signup = () => {
   const [usersList, setUsersList] = useState(
     JSON.parse(localStorage.getItem("usersList")) || []
   );
-
-  useEffect(()=>{
-    if(localStorage.getItem("isLoggedIn") == "true"){
-      history.push("/");
-    }
-  },[])
 
    /**
    *

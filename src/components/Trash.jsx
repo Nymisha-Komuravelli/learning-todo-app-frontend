@@ -1,12 +1,10 @@
 import { DeleteFilled, RollbackOutlined } from "@ant-design/icons";
-import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Row } from "antd";
 import { TodoContext } from "./TodoApp";
-import React, { useContext, useState } from "react";
-import { useHistory } from "react-router";
+import React, { useContext, useEffect } from "react";
 
 const Trash = () => {
+  
   const [
     todoList,
     handleTodo,
@@ -19,6 +17,9 @@ const Trash = () => {
     backtoHome,
   ] = useContext(TodoContext);
 
+  useEffect(()=>{
+    console.log("trash");
+  },[])
   return (
     <>
       {deletedTodoList?.map((todo) => (

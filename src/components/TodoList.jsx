@@ -3,7 +3,7 @@ import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Row } from "antd";
 import { TodoContext } from "./TodoApp";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 
 const TodoList = (props) => {
   const [
