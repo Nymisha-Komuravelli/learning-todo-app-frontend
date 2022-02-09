@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/learning-todo-app-frontend/static/css/main.e71a496e.chunk.css",
+    "main.js": "/learning-todo-app-frontend/static/js/main.96e1619b.chunk.js",
+    "main.js.map": "/learning-todo-app-frontend/static/js/main.96e1619b.chunk.js.map",
+    "runtime-main.js": "/learning-todo-app-frontend/static/js/runtime-main.ac2d9f90.js",
+    "runtime-main.js.map": "/learning-todo-app-frontend/static/js/runtime-main.ac2d9f90.js.map",
+    "static/css/2.a95be28f.chunk.css": "/learning-todo-app-frontend/static/css/2.a95be28f.chunk.css",
+    "static/js/2.7983d434.chunk.js": "/learning-todo-app-frontend/static/js/2.7983d434.chunk.js",
+    "static/js/2.7983d434.chunk.js.map": "/learning-todo-app-frontend/static/js/2.7983d434.chunk.js.map",
+    "static/js/3.e660243e.chunk.js": "/learning-todo-app-frontend/static/js/3.e660243e.chunk.js",
+    "static/js/3.e660243e.chunk.js.map": "/learning-todo-app-frontend/static/js/3.e660243e.chunk.js.map",
+    "index.html": "/learning-todo-app-frontend/index.html",
+    "static/css/2.a95be28f.chunk.css.map": "/learning-todo-app-frontend/static/css/2.a95be28f.chunk.css.map",
+    "static/css/main.e71a496e.chunk.css.map": "/learning-todo-app-frontend/static/css/main.e71a496e.chunk.css.map",
+    "static/js/2.7983d434.chunk.js.LICENSE.txt": "/learning-todo-app-frontend/static/js/2.7983d434.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ac2d9f90.js",
+    "static/css/2.a95be28f.chunk.css",
+    "static/js/2.7983d434.chunk.js",
+    "static/css/main.e71a496e.chunk.css",
+    "static/js/main.96e1619b.chunk.js"
+  ]
+}
